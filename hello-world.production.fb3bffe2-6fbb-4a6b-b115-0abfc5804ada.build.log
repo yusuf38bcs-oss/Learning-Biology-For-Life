@@ -1,0 +1,44 @@
+2026-04-27T22:41:40.949Z	Initializing build environment...
+2026-04-27T22:41:42.490Z	Success: Finished initializing build environment
+2026-04-27T22:41:43.023Z	Cloning repository...
+2026-04-27T22:41:45.248Z	Detected the following tools from environment: 
+2026-04-27T22:41:45.331Z	Executing user deploy command: npx wrangler versions upload
+2026-04-27T22:41:46.985Z	npm warn exec The following package was not found and will be installed: wrangler@4.85.0
+2026-04-27T22:41:55.677Z	
+2026-04-27T22:41:55.677Z	 ⛅️ wrangler 4.85.0
+2026-04-27T22:41:55.678Z	───────────────────
+2026-04-27T22:41:55.719Z	
+2026-04-27T22:41:55.793Z	✘ [ERROR] Missing entry-point to Worker script or to assets directory
+2026-04-27T22:41:55.793Z	
+2026-04-27T22:41:55.793Z	  
+2026-04-27T22:41:55.793Z	  If there is code to deploy, you can either:
+2026-04-27T22:41:55.793Z	  - Specify an entry-point to your Worker script via the command line (ex: `npx wrangler versions upload src/index.ts`)
+2026-04-27T22:41:55.793Z	  - Or create a "wrangler.jsonc" file containing:
+2026-04-27T22:41:55.793Z	  
+2026-04-27T22:41:55.793Z	  ```
+2026-04-27T22:41:55.793Z	  {
+2026-04-27T22:41:55.793Z	    "name": "worker-name",
+2026-04-27T22:41:55.793Z	    "compatibility_date": "2026-04-27",
+2026-04-27T22:41:55.793Z	    "main": "src/index.ts"
+2026-04-27T22:41:55.794Z	  }
+2026-04-27T22:41:55.794Z	  ```
+2026-04-27T22:41:55.794Z	  
+2026-04-27T22:41:55.794Z	  
+2026-04-27T22:41:55.794Z	  If are uploading a directory of assets, you can either:
+2026-04-27T22:41:55.794Z	  - Specify the path to the directory of assets via the command line: (ex: `npx wrangler versions upload --assets=./dist`)
+2026-04-27T22:41:55.794Z	  - Or create a "wrangler.jsonc" file containing:
+2026-04-27T22:41:55.794Z	  
+2026-04-27T22:41:55.794Z	  ```
+2026-04-27T22:41:55.794Z	  {
+2026-04-27T22:41:55.796Z	    "name": "worker-name",
+2026-04-27T22:41:55.797Z	    "compatibility_date": "2026-04-27",
+2026-04-27T22:41:55.797Z	    "assets": {
+2026-04-27T22:41:55.797Z	      "directory": "./dist"
+2026-04-27T22:41:55.797Z	    }
+2026-04-27T22:41:55.797Z	  }
+2026-04-27T22:41:55.797Z	  ```
+2026-04-27T22:41:55.797Z	  
+2026-04-27T22:41:55.797Z	
+2026-04-27T22:41:55.797Z	
+2026-04-27T22:41:55.871Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2026-04-27_22-41-55_278.log"
+2026-04-27T22:41:56.031Z	Failed: error occurred while running deploy command
