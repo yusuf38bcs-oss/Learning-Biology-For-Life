@@ -12,12 +12,9 @@
 <noscript><link href='https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap' rel='stylesheet'/></noscript>
   <meta content='p0OtyW1IqeO5pPz6z6NadsBC5HyhpFc-x_G7nlBGNTE' name='google-site-verification'/>
   <!-- Google Tag Manager -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ &#39;gtm.start&#39;: new Date().getTime(), event: &#39;gtm.js&#39; });
-    (function(w,d,s,l,i){var f=d.getElementsByTagName(s)[0], j=d.createElement(s);
-      j.defer=true;
-      j.src=&#39;https://www.googletagmanager.com/gtm.js?id=&#39;+i+amp=&#39;+l:&#39;;j.async=true;j.src=
+  <script defer='defer'>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({&#39;gtm.start&#39;:
+new Date().getTime(),event:&#39;gtm.js&#39;});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!=&#39;dataLayer&#39;?&#39;&amp;l=&#39;+l:&#39;&#39;;j.defer=true;j.src=
 &#39;https://www.googletagmanager.com/gtm.js?id=&#39;+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,&#39;script&#39;,&#39;dataLayer&#39;,&#39;GTM-WPZ6MPK4&#39;);</script>
 
@@ -1544,7 +1541,8 @@ body, p, .post-body {
     padding: 10px 20px !important;
     background-color: #1a237e !important;
     border-radius: 4px !important;
-}}/* --- Contrast Fixes for Accessibility (Level AA) --- */
+}
+}/* --- Contrast Fixes for Accessibility (Level AA) --- */
 
 /* Note: Post Dates and Excerpts are handled natively by your :root variables! */
 
@@ -1587,7 +1585,66 @@ body, p, .post-body {
 /* Ensure any "faint" dividers in the menu bar are visible */
 .menu-sep {
     border-color: rgba(255,255,255,0.3) !important;
-}/* --- Contrast Fixes Phase 2: Specific Failing Elements --- */
+}
+
+/* --- Post Experience Enhancements --- */
+.item-post .post-body {
+  max-width: 78ch;
+  margin-inline: auto;
+  padding: 0 4px;
+}
+
+.item-post .post-body p,
+.item-post .post-body li {
+  text-wrap: pretty;
+}
+
+.item-post .post-body h2,
+.item-post .post-body h3,
+.item-post .post-body h4 {
+  scroll-margin-top: 95px;
+  border-left: 4px solid var(--main-link-color);
+  padding-left: 10px;
+}
+
+.item-post .post-body blockquote {
+  border-left: 4px solid var(--main-link-color);
+  background: color-mix(in srgb, var(--main-link-color) 8%, #fff);
+  margin: 20px 0;
+  padding: 14px 16px;
+  border-radius: 8px;
+}
+
+.item-post .post-body pre,
+.item-post .post-body code {
+  font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.item-post .post-body pre {
+  overflow-x: auto;
+  padding: 14px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.item-post .post-body img:not(.emoji) {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+.dark .item-post .post-body blockquote {
+  background: rgba(148, 163, 184, 0.14);
+}
+
+@media screen and (max-width: 768px) {
+  .item-post .post-body {
+    max-width: 100%;
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+  }
+}
+/* --- Contrast Fixes Phase 2: Specific Failing Elements --- */
 
 /* 1. Post Author and Super Category Tags */
 /* Forces the faint text to be a readable dark gray on light backgrounds */
@@ -2338,7 +2395,7 @@ body#layout #cookies > h4:after{content:' - Change Cookies Consent from here'}
         </b:includable>
         <b:includable id='scriptTime' var='post'>
         <b:if cond='data:view.isPost and data:widgets.Blog.first.allBylineItems.timestamp'>
-            <script> /*<![CDATA[*/ function get_text(e){ret="";for(var t=e.childNodes.length,n=0;n<t;n++){var o=e.childNodes[n];8!=o.nodeType&&(ret+=1!=o.nodeType?o.nodeValue:get_text(o))}return ret}var words=get_text(document.getElementById("postBody")),count=words.split(" ").length,avg=200,counted=count/avg,maincount=Math.round(counted);document.getElementById("readTime").innerHTML=maincount+" minute read"; /*]]>*/</script>
+            <script>/*<![CDATA[*/(function(){var post=document.getElementById('postBody');var readTimeEl=document.getElementById('readTime');if(!post||!readTimeEl){return;}var text=(post.textContent||'').replace(/\s+/g,' ').trim();if(!text){readTimeEl.textContent='1 minute read';return;}var words=text.split(' ').length;var minutes=Math.max(1,Math.ceil(words/220));readTimeEl.textContent=minutes+' minute read';})();/*]]>*/</script>
         </b:if>
         </b:includable>
         <b:includable id='searchMessage'>
@@ -3668,7 +3725,7 @@ body#layout #cookies > h4:after{content:' - Change Cookies Consent from here'}
           </b:includable>
           <b:includable id='scriptTime' var='post'>
             <b:if cond='data:view.isPost and data:widgets.Blog.first.allBylineItems.timestamp'>
-              <script> /*<![CDATA[*/ function get_text(e){ret="";for(var t=e.childNodes.length,n=0;n<t;n++){var o=e.childNodes[n];8!=o.nodeType&&(ret+=1!=o.nodeType?o.nodeValue:get_text(o))}return ret}var words=get_text(document.getElementById("postBody")),count=words.split(" ").length,avg=200,counted=count/avg,maincount=Math.round(counted);document.getElementById("readTime").innerHTML=maincount+" minute read"; /*]]>*/</script>
+              <script>/*<![CDATA[*/(function(){var post=document.getElementById('postBody');var readTimeEl=document.getElementById('readTime');if(!post||!readTimeEl){return;}var text=(post.textContent||'').replace(/\s+/g,' ').trim();if(!text){readTimeEl.textContent='1 minute read';return;}var words=text.split(' ').length;var minutes=Math.max(1,Math.ceil(words/220));readTimeEl.textContent=minutes+' minute read';})();/*]]>*/</script>
             </b:if>
           </b:includable>
           <b:includable id='searchMessage'>
