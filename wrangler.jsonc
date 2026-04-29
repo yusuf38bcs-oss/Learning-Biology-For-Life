@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "allignment-posts-and-sidebars",
+ "name": "rapid-limit-2644",
   "main": "src/worker.js",
   // Set to today's date for latest features
   "compatibility_date": "2026-04-24",
