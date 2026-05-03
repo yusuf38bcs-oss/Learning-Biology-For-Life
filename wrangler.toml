@@ -1,0 +1,25 @@
+"$schema" = "./node_modules/wrangler/config-schema.json"
+name = "allignment-posts-and-sidebars"
+main = "src/worker.js"
+# Set to today's date for latest features
+compatibility_date = "2026-04-24"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 Database binding
+[[d1_databases]]
+binding = "database-binding"
+database_name = "agent-db"
+database_id = "d29b0b20-e85f-445a-b555-4c36bd7eb23a"
+
+# R2 Bucket binding
+[[r2_buckets]]
+binding = "MY_BUCKET"
+bucket_name = "allignment-assets"
+
+# Cron triggers for continuing/scheduled jobs
+[triggers]
+crons = ["*/30 * * * *"]  # every 30 minutes — adjust as needed
+
+# Observability
+[observability]
+enabled = true
