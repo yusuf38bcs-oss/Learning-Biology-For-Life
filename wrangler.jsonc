@@ -1,34 +1,36 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  // Top-level configuration
-  "name": "my-worker",
-  "main": "src/index.js",
-  // Set this to today's date
-  "compatibility_date": "2026-04-29",
-  "workers_dev": false,
-  "route": {
-    "pattern": "example.org/*",
-    "zone_name": "example.org",
-  },
-  "kv_namespaces": [
+ "name": "rapid-limit-2644",
+  "main": "src/worker.js",
+  // Set to today's date for latest features
+  "compatibility_date": "2026-04-24",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // D1 Database binding
+  "d1_databases": [
     {
-      "binding": "<MY_NAMESPACE>",
-      "id": "<KV_ID>",
-    },
+      "binding": "database-binding",
+      "database_name": "agent-db",
+      "database_id": "d29b0b20-e85f-445a-b555-4c36bd7eb23a"
+    }
   ],
-  "env": {
-    "staging": {
-      "name": "my-worker-staging",
-      "route": {
-        "pattern": "staging.example.org/*",
-        "zone_name": "example.org",
-      },
-      "kv_namespaces": [
-        {
-          "binding": "<MY_NAMESPACE>",
-          "id": "<STAGING_KV_ID>",
-        },
-      ],
-    },
+
+  // R2 Bucket binding
+  "r2_buckets": [
+    {
+      "binding": "MY_BUCKET",
+      "bucket_name": "allignment-assets"
+    }
+  ],
+
+  // Cron triggers for continuing/scheduled jobs
+  "triggers": {
+    "crons": ["*/30 * * * *"]  // every 30 minutes — adjust as needed
   },
+
+  // Observability
+  "observability": {
+    "enabled": true
+  }
 }
+
